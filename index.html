@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <title>Timothy Gona | Software Engineer</title>
+    <meta name="description" content="Software Engineering student specializing in AI Vector Search and Data Engineering.">
+
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+      body { margin: 0; background-color: #020617; font-family: 'JetBrains Mono', monospace; }
+      #loader-screen {
+        position: fixed; inset: 0; background: #020617;
+        display: flex; flex-direction: column; align-items: center; justify-content: center;
+        z-index: 9999; transition: opacity 0.5s ease;
+      }
+      .loading-bar {
+        width: 150px; height: 2px; background: #1e293b;
+        position: relative; overflow: hidden; margin-top: 15px;
+      }
+      .loading-progress {
+        position: absolute; height: 100%; background: #22d3ee;
+        width: 0%; box-shadow: 0 0 10px #22d3ee;
+        animation: boot-slide 5s linear forwards;
+      }
+      @keyframes boot-slide { 0% { width: 0%; } 100% { width: 100%; } }
+      .boot-text { color: #22d3ee; font-size: 0.75rem; letter-spacing: 0.2em; animation: pulse 1.5s infinite; }
+      @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+    </style>
+    <script type="module" crossorigin src="/gmt-portfolio/assets/index-7hnknZst.js"></script>
+    <link rel="stylesheet" crossorigin href="/gmt-portfolio/assets/index-mSjolu1O.css">
+  </head>
+  <body>
+    <div id="loader-screen">
+      <div class="boot-text">>_ INITIALIZING_GMT_OS</div>
+      <div class="loading-bar"><div class="loading-progress"></div></div>
+      <div id="boot-logs" style="color: #334155; font-size: 0.6rem; margin-top: 10px;">UPLINK_READY...</div>
+    </div>
+
+    <div id="root"></div>
+
+
+    <script>
+      const loader = document.getElementById('loader-screen');
+      const logContainer = document.getElementById('boot-logs');
+      const logs = ["NET_CONNECT...", "OCI_SEC_HANDSHAKE...", "VECTOR_ENGINE_SYNC...", "UPLINK_COMPLETE"];
+
+      logs.forEach((msg, i) => {
+        setTimeout(() => { logContainer.innerHTML = `> ${msg}`; }, i * 1200);
+      });
+
+      window.addEventListener('load', () => {
+        setTimeout(() => {
+          loader.style.opacity = '0';
+          setTimeout(() => loader.remove(), 500);
+        }, 5000); 
+      });
+    </script>
+  </body>
+</html>
