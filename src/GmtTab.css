@@ -1,0 +1,235 @@
+:root {
+  /* The exact deep navy from your footer/boot screenshots */
+  --bg-os: #01080a; 
+  --bg-terminal: #000505;
+  --neon-cyan: #06b6d4;
+  --neon-cyan-low: rgba(6, 182, 212, 0.1);
+  --border-muted: rgba(6, 182, 212, 0.05);
+}
+
+/* Apply the dark color to the entire viewport */
+html, body, #root {
+  background-color: var(--bg-os) !important;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar to match the UI */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-os);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--neon-cyan-low);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--neon-cyan);
+}
+
+/* Ensure all sections share the background */
+section, main, aside {
+  background-color: transparent;
+}
+
+/* 1. Terminal Fade-In Animation */
+@keyframes terminalFade {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-terminal {
+  animation: terminalFade 0.6s ease-out forwards;
+}
+
+/* 2. Scroll-Reveal Logic */
+.reveal-node {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal-node.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 3. Project Card Styling (Matching Cisco Data Science Card) */
+.card-accent-bar {
+  background: linear-gradient(90deg, transparent, rgb(var(--card-color)), transparent);
+  box-shadow: 0 0 15px rgb(var(--card-color), 0.5);
+}
+
+.tech-tag {
+  transition: all 0.3s ease;
+  letter-spacing: 0.1em;
+}
+
+.reveal-node:hover .tech-tag {
+  border-color: rgb(var(--card-color), 0.5);
+  color: #fff;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* 4. Footer & Social Icons (Matching Screenshot Color) */
+footer {
+  background-color: var(--footer-bg) !important;
+}
+
+/* WhatsApp Green Glow */
+.group:hover .text-green-500 {
+  filter: drop-shadow(0 0 8px rgba(34, 197, 94, 0.8));
+}
+
+/* LinkedIn Blue Glow */
+.group:hover .text-blue-500 {
+  filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.8));
+}
+
+/* Instagram Pink Glow */
+.group:hover .text-pink-500 {
+  filter: drop-shadow(0 0 8px rgba(236, 72, 153, 0.8));
+}
+
+/* Email Cyan Glow */
+.group:hover .text-cyan-400 {
+  filter: drop-shadow(0 0 8px rgba(6, 182, 212, 0.8));
+}
+
+/* 5. Custom Scrollbar for Logs */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Input Placeholder Styling */
+input::placeholder {
+  color: #0c4a6e !important; /* cyan-900 equivalent */
+  opacity: 0.5;
+}
+
+/* The initial hidden state */
+.reveal-node {
+  opacity: 0;
+  transform: translateY(30px) scale(0.95);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); /* Professional "out-expo" easing */
+  filter: blur(5px);
+}
+
+/* The state triggered by JavaScript */
+.reveal-node.active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+}
+
+/* Add a staggered delay via simple CSS selectors */
+.reveal-node:nth-child(1) { transition-delay: 0.1s; }
+.reveal-node:nth-child(2) { transition-delay: 0.2s; }
+.reveal-node:nth-child(3) { transition-delay: 0.3s; }
+.reveal-node:nth-child(4) { transition-delay: 0.4s; }
+
+/* Scanning Line for About Me Avatar */
+@keyframes scan {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(200%); }
+}
+
+.animate-scan {
+  animation: scan 3s linear infinite;
+  background: linear-gradient(to bottom, 
+    transparent 0%, 
+    rgba(6, 182, 212, 0.2) 50%, 
+    transparent 100%
+  );
+}
+
+/* Optional: Subtle glow for the About Me container */
+.reveal-node:hover .group {
+  box-shadow: inset 0 0 50px rgba(6, 182, 212, 0.02);
+}
+
+/* Specific styling for the category header within cards */
+.tracking-\[0\.3em\] {
+  letter-spacing: 0.3em;
+  text-shadow: 0 0 5px rgba(6, 182, 212, 0.05);
+}
+
+/* Make tech tags pop slightly more on hover */
+.group:hover .text-cyan-800 {
+  text-shadow: 0 0 8px rgba(6, 182, 212, 0.2);
+}
+
+@keyframes scan-fast {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+.animate-scan-fast {
+  animation: scan-fast 1.5s linear infinite;
+}
+
+/* Enhancing the card container depth */
+.reveal-node {
+  /* Ensuring the deep navy matches your footer screenshot */
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+}
+
+.reveal-node:hover {
+  /* Shifts to the exact #01080a from your GMT_v2.7 footer */
+  background-color: #01080a !important;
+  transform: translateY(-2px);
+}
+
+@keyframes scan-fast {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+.animate-scan-fast {
+  animation: scan-fast 1.8s linear infinite;
+}
+
+/* Ensure cards transition smoothly to the deep navy background */
+.reveal-node:hover {
+  background-color: #01080a !important; /* Matches your GMT_v2.7 footer */
+  transform: translateY(-4px);
+}
+
+/* Mobile Optimization: Add a subtle glow since hover isn't persistent */
+@media (max-width: 768px) {
+  .reveal-node {
+    background-color: rgba(1, 8, 10, 0.6); /* Slightly more opaque on mobile */
+    border-color: rgba(6, 182, 212, 0.15);
+  }
+  
+  /* Trigger the 'target' effect when the user taps the card */
+  .reveal-node:active {
+    background-color: #01080a !important;
+    border-color: rgba(6, 182, 212, 0.5);
+  }
+}
+
+/* Adjust the Biometric Profile for smaller screens */
+.biometric-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+@keyframes shimmer {
+  100% { transform: translateX(100%); }
+}
+
+.group-hover\:animate-shimmer {
+  animation: shimmer 1.5s infinite;
+}

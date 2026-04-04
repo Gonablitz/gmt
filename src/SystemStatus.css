@@ -1,0 +1,38 @@
+.status-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 5px 12px;
+  border: 1px solid #ff4600; /* Oracle Orange */
+  border-radius: 4px;
+  width: fit-content;
+  font-family: 'Courier New', Courier, monospace;
+  box-shadow: 0 0 10px rgba(255, 70, 0, 0.2);
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #39ff14; /* Neon Green */
+  border-radius: 50%;
+  box-shadow: 0 0 8px #39ff14;
+  animation: pulse-green 2s infinite;
+}
+
+.status-text {
+  color: #ffffff;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+.status-bold {
+  color: #39ff14;
+  font-weight: bold;
+}
+
+@keyframes pulse-green {
+  0% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.2); }
+  100% { opacity: 1; transform: scale(1); }
+}

@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Your custom cyber styles below */
+body {
+  @apply bg-black text-cyan-500 font-mono;
+}
+
 @layer utilities {
   /* The "Breathing" Neon Animation */
   @keyframes cyber-pulse {
